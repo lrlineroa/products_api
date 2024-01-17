@@ -11,7 +11,7 @@ module.exports = {
      */
      return queryInterface.sequelize.transaction(t => {
       return Promise.all([
-        queryInterface.addColumn('Users', 'User_roleId', {
+        queryInterface.addColumn('Users', 'UserRoleId', {
           type: Sequelize.DataTypes.INTEGER,
           references: {
             model:'User_roles',
@@ -60,10 +60,10 @@ module.exports = {
      */
      return queryInterface.sequelize.transaction(t => {
       return Promise.all([
-        queryInterface.removeColumn('Users', 'role_id', { transaction: t }),
-        queryInterface.removeColumn('Invoices', 'user_id', { transaction: t }),
-        queryInterface.removeColumn('Invoice_items', 'invoice_id', { transaction: t }),
-        queryInterface.removeColumn('Invoice_items', 'product_id', { transaction: t }),
+        queryInterface.removeColumn('Users', 'UserRoleId', { transaction: t }),
+        queryInterface.removeColumn('Invoices', 'UserId', { transaction: t }),
+        queryInterface.removeColumn('Invoice_items', 'InvoiceId', { transaction: t }),
+        queryInterface.removeColumn('Invoice_items', 'ProductId', { transaction: t }),
       ]);
     });
   }

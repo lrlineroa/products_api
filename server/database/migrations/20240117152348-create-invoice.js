@@ -24,6 +24,7 @@ module.exports = {
       },
       invoice_date: {
         allowNull: false,
+        defaultValue:Sequelize.NOW,
         type: Sequelize.DATE
       },
       createdAt: {

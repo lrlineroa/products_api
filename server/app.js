@@ -6,7 +6,7 @@ import logger  from 'morgan'
 
 import indexRouter  from './routes/index'
 import usersRouter  from './routes/users'
-
+require('dotenv').config()
 var app = express();
 
 // view engine setup
