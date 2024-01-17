@@ -6,7 +6,8 @@ import logger  from 'morgan'
 
 import indexRouter  from './routes/index'
 import usersRouter  from './routes/users'
-require('dotenv').config()
+import productsRouter  from './routes/products'
+require('dotenv').config() // Reload Env variables
 var app = express();
 
 // view engine setup
@@ -21,7 +22,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/products', productsRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

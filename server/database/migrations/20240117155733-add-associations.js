@@ -17,6 +17,7 @@ module.exports = {
             model:'User_roles',
             key: 'id'
           },
+          allowNull:false,
           onUpdate:"CASCADE",
           onDelete:"RESTRICT"
         }, { transaction: t }),
@@ -26,6 +27,7 @@ module.exports = {
             model:'Users',
             key: 'id'
           },
+          allowNull:false,
           onUpdate:"CASCADE",
           onDelete:"RESTRICT"
         }, { transaction: t }),
@@ -35,6 +37,7 @@ module.exports = {
             model:'Invoices',
             key: 'id'
           },
+          allowNull:false,
           onUpdate:"CASCADE",
           onDelete:"RESTRICT"
         }, { transaction: t }),
@@ -44,6 +47,7 @@ module.exports = {
             model:'Products',
             key: 'id'
           },
+          allowNull:false,
           onUpdate:"CASCADE",
           onDelete:"RESTRICT"
         }, { transaction: t }),
