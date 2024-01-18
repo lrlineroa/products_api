@@ -1,9 +1,10 @@
-import db from '../database/models';
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import axios from "axios";
+import db from "../database/models";
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 export const registerUser = async (req, res) => {
   try {
-    const { name, email, password,UserRoleId } = req.body;
+    const { name, email, password, UserRoleId } = req.body;
     // Check if the email exists
     const userExists = await db.User.findOne({
       where: { email },
@@ -18,9 +19,10 @@ export const registerUser = async (req, res) => {
       name,
       email,
       password: await bcrypt.hash(password, 15),
-      UserRoleId
+      UserRoleId,
     });
-    return res.status(200).send("Registration successful");
+    let loginResponse = await axios.post(`http://localhost:${process.env.PORT}/users/sign-in`, { email, password });
+    return res.json(loginResponse.data);
   } catch (err) {
     console.error(err);
     return res.status(500).send("Error in registering user");
@@ -52,6 +54,7 @@ export const signInUser = async (req, res) => {
       id: user.id,
       name: user.name,
       email: user.email,
+      UserRoleId:user.UserRoleId,
       accessToken: token,
     });
   } catch (err) {

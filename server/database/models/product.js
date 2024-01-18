@@ -15,11 +15,26 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Product.init({
-    batch_number: DataTypes.STRING,
-    name: DataTypes.STRING,
+    batch_number: {
+      type:DataTypes.STRING,
+      validate:{
+        len:[3,255]
+      },
+      allowNull:false,
+    },
+    name: {
+      type:DataTypes.STRING,
+      allowNull:false,
+      validate:{
+        len:[3,255]
+      }
+    },
     price: DataTypes.DECIMAL,
     stock: DataTypes.INTEGER,
-    entry_date: DataTypes.DATE
+    entry_date: {
+      type: DataTypes.DATE,
+      defaultValue:DataTypes.NOW
+    }
   }, {
     sequelize,
     modelName: 'Product',

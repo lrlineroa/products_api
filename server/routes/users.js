@@ -1,4 +1,5 @@
 import { registerUser, signInUser } from "../controllers/auth.controller";
+import { getInvoicesByUserId } from "../controllers/invoices.controller";
 import db from "../database/models";
 var express = require("express");
 var router = express.Router();
@@ -16,5 +17,7 @@ router.post('/sign-up', registerUser);
 
 // Signin route
 router.post('/sign-in', signInUser);
+
+router.get('/:user_id/invoices',getInvoicesByUserId);
 
 module.exports = router;
