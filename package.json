@@ -10,7 +10,8 @@
     "clean": "rimraf dist-server",
     "clean:modules": "rimraf node_modules",
     "build": "npm-run-all clean transpile",
-    "watch:dev": "nodemon"
+    "watch:dev": "nodemon",
+    "documentation":"apidoc -i server -o doc"
   },
   "dependencies": {
     "@babel/cli": "^7.23.4",

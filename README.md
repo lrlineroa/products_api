@@ -31,3 +31,7 @@ Esta Api contiene la información del reto propuesto.
 - Ejecutar el comando ***yarn watch:dev*** en la raíz del proyecto.
 
 - Visitar el [inicio](http://localhost:3000) del proyecto.
+
+- (Opcional) si queremos generar la documentación estática podemos correr el comando ***yarn documentation*** en la raíz del proyecto.
+
+

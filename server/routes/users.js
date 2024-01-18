@@ -11,6 +11,17 @@ router.get("/", async function (req, res, next) {
   res.send("respond with a resource " + users);
 });
 
+
+/**
+ * @api {get} /user/:id Request User information
+ * @apiName GetUser
+ * @apiGroup User
+ *
+ * @apiParam {Number} id Users unique ID.
+ *
+ * @apiSuccess {String} firstname Firstname of the User.
+ * @apiSuccess {String} lastname  Lastname of the User.
+ */
 // Registration route
 router.post('/sign-up', registerUser);
 
