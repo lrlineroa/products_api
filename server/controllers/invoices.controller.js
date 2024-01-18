@@ -52,10 +52,10 @@ export const getInvoicesByUserId = async (req, res) => {
 export const readOneInvoice = async (req, res) => {
   try {
     const { id } = req.params;
-    let product = await db.Invoice.findByPk(id);
-    res.json(product);
+    let invoice = await db.Invoice.findByPk(id);
+    res.json(invoice);
   } catch (err) {
     console.error(err);
-    return res.status(500).send("Error at retieving the product");
+    return res.status(500).send("Error at retieving the invoice");
   }
 };
